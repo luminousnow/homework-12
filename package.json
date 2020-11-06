@@ -21,6 +21,7 @@
   },
   "homepage": "https://luminousnow.github.io/homework-12",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.29.0"
   }
 }
