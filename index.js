@@ -17,7 +17,8 @@ function getCountryByName(countryName) {
     })
     .then(countryData => {
       console.log(countryData);
-      return (markup = countryCardTpl(countryData));
+      const markup = countryCardTpl(countryData);
+      return markup;
     });
 }
 
