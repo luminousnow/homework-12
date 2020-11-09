@@ -1,31 +1,28 @@
 import './src/scss/style.scss';
 import countryCardTpl from './src/templates/country.hbs';
+import debounce from 'lodash.debounce';
+import getCountryByName from './src/js/fetch-country-by-name';
 
 const refs = {
   textField: document.querySelector('.text'),
+  countryInputField: document.querySelector('#countryInputField'),
 };
 
-// console.log(countryCardTpl);
+// слухає інпут
+refs.countryInputField.addEventListener('input', debounce(onInputChange, 800));
 
-const params = getCountryByName('ukraine');
+function onInputChange(evt) {
+  const inputValue = refs.countryInputField.value;
 
-function getCountryByName(countryName) {
-  fetch(`https://restcountries.eu/rest/v2/name/${countryName}`)
-    .then(response => {
-      // console.log(response.json());
-      return response.json();
-    })
-    .then(countryData => {
-      console.log(countryData);
-      const markup = countryCardTpl(countryData);
-      return markup;
-    });
+  // вимикає перезавантаження сторінки по замовчуванню
+  evt.preventDefault();
+
+  // отримує json і рендерить розмітку на сторінку
+  getCountryByName(inputValue).then(markup);
 }
 
-// markup(params);
-
-// function markup(params) {
-//   return (markup = countryCardTpl(params));
-// }
-
-// console.log(getCountryByName('ukraine'));
+// рендерить розмітку по шаблону з отриманих даних
+function markup(countryData) {
+  const markup = countryCardTpl(countryData);
+  refs.textField.innerHTML = markup;
+}
