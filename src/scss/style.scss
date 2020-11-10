@@ -1,10 +1,75 @@
+// Colors
+$bg-color: rgb(255, 255, 255);
+$dot-color: hsl(256, 33, 70);
+
+// Dimensions
+$dot-size: 1px;
+$dot-space: 22px;
+
+// * {
+//   outline: 1px solid green;
+// }
+
 body {
-  background-color: fff;
-  display: flexbox;
+  background: linear-gradient(
+        90deg,
+        $bg-color ($dot-space - $dot-size),
+        transparent 1%
+      )
+      center,
+    linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+    $dot-color;
+  background-size: $dot-space $dot-space;
+}
+
+form {
+  display: flex;
+
+  margin-top: 40px;
+}
+
+.form-lable {
+  font-weight: bold;
 }
 
 .form-group {
-  margin: 20px;
+  margin: 0 auto;
+  width: 800px;
+  max-width: 800px;
+}
+
+.text {
+  padding-top: 10px;
+}
+
+.conteiner {
+  display: flexbox;
+  margin: 0 auto;
+
+  width: 800px;
+  max-width: 800px;
+}
+
+.header-name {
+  margin-top: 10px;
+  text-align: center;
+
+  font-weight: bold;
+}
+
+.colum {
+  display: flex;
+  margin-top: 20px;
+}
+
+.description {
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.flag-image {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
   max-width: 400px;
-  justify-content: center;
 }
