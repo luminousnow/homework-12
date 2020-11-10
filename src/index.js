@@ -17,12 +17,12 @@ function onInputChange(evt) {
   // вимикає перезавантаження сторінки по замовчуванню
   evt.preventDefault();
 
-  // отримує json і рендерить розмітку на сторінку
-  getCountryByName(inputValue).then(markup);
+  // отримує json, рендерить розмітку на сторінку
+  getCountryByName(inputValue).then(renderCountryCard);
 }
 
 // рендерить розмітку по шаблону з отриманих даних
-function markup(countryData) {
+function renderCountryCard(countryData) {
   const markup = countryCardTpl(countryData);
   refs.textField.innerHTML = markup;
 }
