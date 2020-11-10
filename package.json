@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel *.html",
-    "build": "parcel build *.html --public-url /homework-12.git/",
+    "dev": "parcel src/*.html",
+    "build": "parcel src/*.html --public-url /homework-12.git/",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
