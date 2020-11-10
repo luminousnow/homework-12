@@ -1,6 +1,8 @@
-// отримує доступ до введених даних, формує і вертає json
-export default function getCountryByName(countryName) {
-  const requestLink = 'https://restcountries.eu/rest/v2/name/';
+const BASE_URL = 'https://restcountries.eu/rest/v2';
 
-  return fetch(requestLink + countryName).then(response => response.json());
+// отримує назву країни, повертає json
+export default function getCountryByName(countryName) {
+  const requestLink = `${BASE_URL}/name/${countryName}`;
+
+  return fetch(requestLink).then(response => response.json());
 }
