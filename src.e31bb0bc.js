@@ -2708,11 +2708,11 @@ function getCountryByName(countryName) {
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _country = _interopRequireDefault(require("../src/templates/country.hbs"));
+var _country = _interopRequireDefault(require("./templates/country.hbs"));
 
 var _lodash = _interopRequireDefault(require("lodash.debounce"));
 
-var _fetchCountryByName = _interopRequireDefault(require("../src/js/fetch-country-by-name"));
+var _fetchCountryByName = _interopRequireDefault(require("./js/fetch-country-by-name"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2722,7 +2722,7 @@ var refs = {
   countryInputField: document.querySelector('#countryInputField')
 }; // слухає інпут
 
-refs.countryInputField.addEventListener('input', (0, _lodash.default)(onInputChange, 800));
+refs.countryInputField.addEventListener('input', (0, _lodash.default)(onInputChange, 500));
 
 function onInputChange(evt) {
   var inputValue = refs.countryInputField.value; // вимикає перезавантаження сторінки по замовчуванню
@@ -2737,7 +2737,7 @@ function markup(countryData) {
   var markup = (0, _country.default)(countryData);
   refs.textField.innerHTML = markup;
 }
-},{"../src/templates/country.hbs":"templates/country.hbs","lodash.debounce":"../node_modules/lodash.debounce/index.js","../src/js/fetch-country-by-name":"js/fetch-country-by-name.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./templates/country.hbs":"templates/country.hbs","lodash.debounce":"../node_modules/lodash.debounce/index.js","./js/fetch-country-by-name":"js/fetch-country-by-name.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2765,7 +2765,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49647" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49947" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
