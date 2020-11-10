@@ -1,4 +1,4 @@
-// import './scss/style.scss';
+import './scss/style.scss';
 import countryCardTpl from './templates/country.hbs';
 import debounce from 'lodash.debounce';
 import getCountryByName from './js/fetch-country-by-name';
