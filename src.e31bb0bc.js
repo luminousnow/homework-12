@@ -2924,6 +2924,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var refs = (0, _getRefs.default)();
 
 function getMarkup(countryData) {
+  var notFoundPage = countryData.status === 404;
+
+  if (notFoundPage) {
+    refs.textField.innerHTML = '';
+    return;
+  }
+
   if (countryData.length > 10) {
     (0, _notice.default)();
     refs.textField.innerHTML = '';
@@ -2961,8 +2968,15 @@ refs.countryInputField.addEventListener('input', (0, _lodash.default)(onInputCha
 
 function onInputChange(evt) {
   // відміняє перезавантаження сторінки
-  evt.preventDefault();
-  var inputValue = refs.countryInputField.value; // отримує json, рендерить розмітку на сторінку
+  evt.preventDefault(); // доступ до значення input
+
+  var inputValue = refs.countryInputField.value; // перевірка inputValue на наявність даних
+
+  if (!inputValue) {
+    refs.textField.innerHTML = '';
+    return;
+  } // отримує json, рендерить розмітку на сторінку
+
 
   (0, _getCountry.default)(inputValue).then(_getMarkup.default);
 }
@@ -2994,7 +3008,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49552" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63323" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
