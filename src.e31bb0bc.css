@@ -18,6 +18,11 @@ form {
   max-width: 800px;
 }
 
+input::placeholder {
+  font-size: 1.1em;
+  font-style: italic;
+}
+
 .text {
   padding-top: 10px;
 }
