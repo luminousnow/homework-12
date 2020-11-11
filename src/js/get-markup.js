@@ -7,6 +7,13 @@ import getRefs from '../js/get-refs';
 const refs = getRefs();
 
 export default function getMarkup(countryData) {
+  const notFoundPage = countryData.status === 404;
+
+  if (notFoundPage) {
+    refs.textField.innerHTML = '';
+    return;
+  }
+
   if (countryData.length > 10) {
     errorMessage();
     refs.textField.innerHTML = '';
